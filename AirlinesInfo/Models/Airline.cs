@@ -9,6 +9,7 @@ namespace AirlinesInfo.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<Airplane> Planes { get; set; }
+
+        public virtual ICollection<Airplane> Planes { get; set; }
     }
 }

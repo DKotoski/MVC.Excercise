@@ -12,6 +12,7 @@ namespace AirlinesInfo.Models
         public string Type { get; set; }
         public AirplaneLength Length{ get; set; }
         public string Status { get; set; }
-        public Flight Flight { get; set; }
+
+        public virtual Flight Flight { get; set; }
     }
 }

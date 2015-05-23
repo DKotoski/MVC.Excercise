@@ -43,11 +43,11 @@ namespace AirlinesInfo.Controllers
 
             foreach (var airplane in db.Airplanes.ToList())
             {
-                result.Add(new ViewModelFlights() { FlightNumber = db.Flights.Find(1).ID, 
+                result.Add(new ViewModelFlights() { FlightNumber = airplane.Flight.ID, 
                     Status = airplane.Status, 
                     PlaneType = airplane.Type, 
-                    Arival = db.Airports.Find(1).Name,
-                    Departure = db.Airports.Find(2).Name
+                    Arival = airplane.Flight.Arival.Name,
+                    Departure = airplane.Flight.Departure.Name
                 });
             }
             return View(result);

@@ -8,7 +8,7 @@ namespace AirlinesInfo.Models
     public class Flight
     {
         public int ID { get; set; }
-        public Airport Departure { get; set; }
-        public Airport Arival { get; set; }
+        public virtual Airport Departure { get; set; }
+        public virtual Airport Arival { get; set; }
     }
 }
