@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AirlinesInfo.Models.ViewModelFlights>
+@{
+    ViewBag.Title = "UserInteraction";
+}
+
+<h2>UserInteraction</h2>
+
+<input type="text" id="search"/>
+<table class="table" id="table">
+    <thead>
+        <tr>
+            <th>Flight Number</th>
+            <th>Flight Status</th>
+            <th>Plane type</th>
+            <th>Departure airport</th>
+            <th>Arrival airport</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var plane in Model)
+        {
+            <tr style="display:none;">
+                <td>@plane.FlightNumber</td>
+                <td>@plane.Status</td>
+                <td>@plane.PlaneType</td>
+                <td>@plane.Departure</td>
+                <td>@plane.Arival</td>
+            </tr>
+        }
+    </tbody>
+    
+</table>
+
+@section Scripts{
+
+<script>
+    $(function () {
+        $("#search").keyup(function () {
+            
+            _this = this;
+            // Show only matching TR, hide rest of them
+            $.each($("#table tbody").find("tr"), function () {
+                console.log($(this).text());
+                if ($("#search").val() == "") $(this).hide();
+                if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
+                    $(this).hide();
+                else
+                    $(this).show();
+            });
+        });
+    })
+</script>
+}
